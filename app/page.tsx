@@ -236,7 +236,10 @@ const Home = () => {
           Il tuo contributo è importante!
         </p>
 
-        <div className="mt-4 cta-btn bg-[#272727]">
+        <a
+          href="https://t.me/Words_and_Quotes"
+          className="mt-4 cta-btn bg-[#272727]"
+        >
           <button className="flex flex-row cta-title text-[30px] gap-3 items-center">
             <Image
               src="/assets/homepage/telegram.png"
@@ -246,7 +249,7 @@ const Home = () => {
             />{' '}
             Lascia il tuo feedback
           </button>
-        </div>
+        </a>
 
         <p id="quotes" className="mt-6 description">
           Lascia un feedback sul canale telegram e unisciti per rimanere sempre
