@@ -1,0 +1,369 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Word And Quotes Styles */
+
+.flex_row {
+  @apply flex flex-row items-center;
+}
+.header_title {
+  @apply text-[30px] font-normal;
+}
+.striked {
+  text-decoration: line-through;
+}
+
+.title {
+  @apply font-inter font-bold;
+}
+
+.green-section {
+  @apply text-[#268C41] text-[15px] font-medium font-inter flex-center;
+}
+.black-section {
+  @apply text-[#000] text-[15px] font-medium font-inter flex-center;
+}
+
+.description {
+  @apply text-[16px] text-gray-500 font-normal;
+}
+
+.cta-btn {
+  @apply w-full py-3 flex justify-center items-center rounded-lg;
+}
+.cta-title {
+  @apply font-semibold text-[20px] text-white;
+}
+
+.menu {
+  @apply absolute top-12 right-0 rounded-xl;
+  animation: slideIn 0.7s ease-in-out;
+}
+@keyframes slideIn {
+  0% {
+    transform: translateX(110%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+/* Header & styles*/
+
+.header-title {
+  @apply text-black text-center text-[32px] not-italic font-normal leading-[normal];
+  font-family: Outfit;
+}
+.outfit {
+  font-family: Outfit;
+}
+
+.white-circle {
+  @apply flex bg-white rounded-full items-center justify-center h-12 w-12;
+}
+
+/* Text and Buttons*/
+.text-medium {
+  @apply text-black text-center text-base not-italic font-normal leading-[normal];
+  font-family: Outfit;
+}
+.tag-text {
+  @apply text-black font-thin;
+  font-family: Outfit;
+}
+.btn {
+  @apply flex w-[110px] h-[37px] justify-center items-center gap-2.5 shrink-0 border px-4 py-0 rounded-[5px] border-solid border-[rgba(0,0,0,0.31)];
+}
+.btn-save {
+  background: rgba(0, 0, 0, 0.871);
+  font-family: Inter;
+}
+
+/* Modals */
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal.open {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.share-bar {
+  @apply absolute top-28 right-0 px-3 mr-1 py-3 items-center gap-3 flex flex-col rounded-[20px] border-2 border-solid border-[#D9D9D9];
+  background-color: #ffffff;
+}
+
+/* Bars */
+.navbar {
+  @apply fixed top-0 z-30 w-full bg-slate-50;
+}
+.navbar_container {
+  @apply flex items-center justify-between py-2 px-5;
+}
+
+.bottombar {
+  @apply fixed bottom-2 z-10 w-[94%] py-4 backdrop-blur-lg rounded-[42px];
+  background: rgb(4, 4, 24);
+}
+
+.bottombar_container {
+  @apply flex items-center justify-between mx-8 gap-3 md:gap-5;
+}
+
+/* Loaders */
+
+/* Loader 'Loading' with rotation */
+.loader {
+  display: inline-block;
+  font-size: 60px;
+  font-family: Outfit, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #000000;
+  position: relative;
+}
+.loader::before {
+  content: '';
+  position: absolute;
+  left: 34px;
+  bottom: 20px;
+  width: 35px;
+  height: 35px;
+  border-radius: 60%;
+  border: 5px solid #fff;
+  border-bottom-color: #0dff00c2;
+  box-sizing: border-box;
+  animation: rotation 0.6s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Loader green & blue */
+.loader_green-blue {
+  animation: rotate 2s infinite;
+  height: 50px;
+  width: 50px;
+}
+
+.loader_green-blue:before,
+.loader_green-blue:after {
+  border-radius: 50%;
+  content: '';
+  display: block;
+  height: 20px;
+  width: 20px;
+}
+.loader_green-blue:before {
+  animation: ball1 1s infinite;
+  background-color: #fff;
+  box-shadow: 30px 0 0 #0eab45;
+  margin-bottom: 10px;
+}
+.loader_green-blue:after {
+  animation: ball2 1s infinite;
+  background-color: #14b84e;
+  box-shadow: 30px 0 0 #fff;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg) scale(0.8);
+  }
+  50% {
+    transform: rotate(360deg) scale(0.6);
+  }
+  100% {
+    transform: rotate(720deg) scale(0.8);
+  }
+}
+
+@keyframes ball1 {
+  0% {
+    box-shadow: 30px 0 0 #007bff;
+  }
+  50% {
+    box-shadow: 0 0 0 #007bff;
+    margin-bottom: 0;
+    transform: translate(15px, 15px);
+  }
+  100% {
+    box-shadow: 30px 0 0 #007bff;
+    margin-bottom: 10px;
+  }
+}
+
+@keyframes ball2 {
+  0% {
+    box-shadow: 30px 0 0 #fff;
+  }
+  50% {
+    box-shadow: 0 0 0 #fff;
+    margin-top: -20px;
+    transform: translate(15px, 15px);
+  }
+  100% {
+    box-shadow: 30px 0 0 #fff;
+    margin-top: 0;
+  }
+}
+
+/* Containers */
+.main {
+  width: 100vw;
+  min-height: 100vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  padding: 120px 24px 160px 24px;
+  pointer-events: none;
+}
+
+.main:before {
+  background: radial-gradient(circle, rgba(2, 0, 36, 0) 0, #fafafa 100%);
+  position: absolute;
+  content: '';
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.main:after {
+  content: '';
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  opacity: 0.4;
+  filter: invert(1);
+}
+
+.gradient {
+  height: fit-content;
+  z-index: 3;
+  width: 100%;
+  max-width: 640px;
+  background-image: radial-gradient(
+      at 27% 37%,
+      hsla(215, 98%, 61%, 1) 0px,
+      transparent 0%
+    ),
+    radial-gradient(at 97% 21%, hsla(125, 98%, 72%, 1) 0px, transparent 50%),
+    radial-gradient(at 52% 99%, hsla(354, 98%, 61%, 1) 0px, transparent 50%),
+    radial-gradient(at 10% 29%, hsla(256, 96%, 67%, 1) 0px, transparent 50%),
+    radial-gradient(at 97% 96%, hsla(38, 60%, 74%, 1) 0px, transparent 50%),
+    radial-gradient(at 33% 50%, hsla(222, 67%, 73%, 1) 0px, transparent 50%),
+    radial-gradient(at 79% 53%, hsla(343, 68%, 79%, 1) 0px, transparent 50%);
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  filter: blur(100px) saturate(150%);
+  top: 80px;
+  opacity: 0.15;
+}
+
+@media screen and (max-width: 640px) {
+  .main {
+    padding: 0;
+  }
+}
+
+.app {
+  @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6;
+}
+
+/* Text */
+.head_text {
+  @apply mt-5 text-5xl font-extrabold leading-[1.15] text-black sm:text-6xl;
+}
+.desc {
+  @apply mt-5 text-lg text-gray-600 sm:text-xl max-w-2xl;
+}
+.logo_text {
+  @apply max-sm:hidden font-satoshi font-semibold text-lg text-black tracking-wide;
+}
+/* text colors */
+.orange_gradient {
+  @apply bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 bg-clip-text text-transparent;
+}
+.green_gradient {
+  @apply bg-gradient-to-r from-green-400 to-green-500 bg-clip-text text-transparent;
+}
+.blue_gradient {
+  @apply bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
+}
+
+/* Components */
+.common_card {
+  @apply flex-1 break-inside-avoid rounded-lg border border-gray-300 bg-white/20 bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter md:w-[360px] w-full h-fit;
+}
+/* navbar */
+.dropdown {
+  @apply absolute right-0 top-full mt-3 w-full p-5 rounded-lg bg-white min-w-[210px] flex flex-col gap-2 justify-end items-end;
+}
+.dropdown_link {
+  @apply text-sm font-inter text-gray-700 hover:text-gray-500 font-medium;
+}
+/* buttons */
+.black_btn {
+  @apply rounded-full border border-black bg-black py-1.5 px-5 text-white transition-all hover:bg-white hover:text-black text-center text-sm font-inter flex items-center justify-center;
+}
+.outline_btn {
+  @apply rounded-full border border-black bg-transparent py-1.5 px-5 text-black transition-all hover:bg-black hover:text-white text-center text-sm font-inter flex items-center justify-center;
+}
+.copy_btn {
+  @apply w-7 h-7 rounded-full bg-white/10 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur flex justify-center items-center cursor-pointer;
+}
+/* inputs */
+.search_input {
+  @apply block w-full rounded-md border border-gray-200 bg-white py-2.5 font-satoshi pl-5 pr-12 text-sm shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0;
+}
+.form_textarea {
+  @apply w-full flex rounded-lg h-[200px] mt-2 p-3 text-sm text-gray-500 outline-0;
+}
+.form_input {
+  @apply w-full flex rounded-lg mt-2 p-3 text-sm text-gray-500 outline-0;
+}
+
+/* Styles */
+.glassmorphism {
+  @apply rounded-xl border border-gray-200 bg-white/20 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur p-5;
+}
+
+/* Positioning and Layouts */
+.flex-center {
+  @apply flex justify-center items-center;
+}
+.flex-start {
+  @apply flex justify-start items-start;
+}
+.flex-end {
+  @apply flex justify-end items-center;
+}
+.flex-between {
+  @apply flex justify-between items-center;
+}
+
+.grid_layout {
+  @apply space-y-6 py-8 sm:columns-2 sm:gap-6 xl:columns-3;
+}
