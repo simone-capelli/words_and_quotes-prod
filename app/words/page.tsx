@@ -15,13 +15,13 @@ const Home = () => {
       />
 
       <div className="text-medium flex flex-row gap-1 pt-10">
-        <p>Have</p>
-        <p className="text-[#268C41]">you</p>
-        <p>found</p>
-        <p className="text-[#268C41]">new</p>
-        <p>words</p>
+        <p>Hai</p>
+        <p className="text-[#268C41]">trovato</p>
+        <p>delle</p>
+        <p className="text-[#268C41]">nuove</p>
+        <p>parole</p>
         <div className="text-[#268C41] flex flex-row">
-          today
+          oggi
           <p className="text-black">?</p>
         </div>
       </div>
