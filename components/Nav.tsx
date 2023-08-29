@@ -42,11 +42,7 @@ const Nav = () => {
         )}
 
         {toggleMenu && (
-          <div
-            id="menu"
-            className="menu flex px-8 py-4 mr-2 bg-black
-         "
-          >
+          <div id="menu" className="menu flex px-8 py-4 mr-2 bg-black">
             <ul className="list-none flex flex-col justify-end items-center gap-1">
               {navLinks.map((nav, index) => (
                 <li

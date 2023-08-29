@@ -7,6 +7,10 @@
 
 /* Word And Quotes Styles */
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 .flex_row {
   @apply flex flex-row items-center;
 }
