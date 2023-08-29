@@ -1,6 +1,5 @@
 'use client';
 
-import { SignedIn, SignedOut } from '@clerk/nextjs';
 import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 
@@ -13,15 +12,16 @@ const BottomBar = () => {
       <div className="bottombar_container">
         {pathname === '/' && (
           <>
-            <a href="https://t.me/Words_and_Quotes">
+            <a href="#contactMe">
               <Image
-                src="/assets/homepage/telegram.png"
-                alt="Telegram_fill"
-                width={28}
-                height={28}
+                src="/assets/bottombar/contactMe.png"
+                alt="ContactMe"
+                width={30}
+                height={30}
                 className="cursor-pointer"
               />
             </a>
+
             <Image
               onClick={() => router.push('/')}
               src="/assets/bottombar/home-green.png"
@@ -29,6 +29,7 @@ const BottomBar = () => {
               width={36}
               height={36}
             />
+
             <Image
               onClick={() => router.push('/words')}
               src="/assets/bottombar/plus-fill.png"

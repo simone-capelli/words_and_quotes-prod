@@ -7,6 +7,7 @@ import { useState } from 'react';
 
 const Home = () => {
   const router = useRouter();
+
   // const [totalUsers, setTotalUsers] = useState(0);
 
   /* useEffect(() => {
@@ -167,7 +168,7 @@ const Home = () => {
           &quot;La qualità è come la luce del sole: non è la quantità che conta,
           ma la sua intensità.&quot;
         </p>
-        <p id="contacts" className="mt-2 description">
+        <p id="whoAmI" className="mt-2 description">
           Qualità = Priorità.
           <br /> Fornire un&apos;esperienza di valore e di apprendimento che
           soddisfi le esigenze degli utenti in modo completo e soddisfacente è
@@ -176,7 +177,7 @@ const Home = () => {
           implementando le citazioni (quotes).
         </p>
 
-        <p className="mt-12 green-section">Contacts</p>
+        <p className="mt-12 green-section">Who am I</p>
         <p className="mt-4 title text-[22px]">
           La conoscenza è come una chiave che apre le porte
           dell&apos;opportunità.
@@ -211,10 +212,19 @@ const Home = () => {
           combinare queste due passioni con la mia esperienza nello sviluppo di
           app.
         </p>
-        <p className="my-3 description">
+
+        {/* <p className="title text-[22px]">Contattami qui sotto</p> */}
+        <p id="contactMe" className="mt-12 green-section">
+          Contact Me
+        </p>
+        <p className="my-3 title text-[22px]">
+          Non esitare a contattarmi, una conversazione può aprire porte
+          inaspettate!
+        </p>
+
+        <p className="mb-2 description">
           Sarebbe un piacere conoscere la tua storia e esplorare nuove
-          possibilità insieme. Non esitare a contattarmi, una conversazione può
-          aprire porte inaspettate!
+          possibilità insieme.
         </p>
 
         <ContactForm />

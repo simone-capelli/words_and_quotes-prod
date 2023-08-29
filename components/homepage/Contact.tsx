@@ -112,15 +112,20 @@ const ContactForm = () => {
     <>
       {isSent ? (
         <div className="flex flex-col items-center flex-center">
-          <p className="title text-[24px] mt-4 mb-1">Messaggio ricevuto!</p>
-          <p className="description">Ti risponderò entro 24h</p>
+          <p className="title text-[24px] mt-10 mb-1">Messaggio ricevuto!</p>
+          <p className="description mb-1">Adoro la tua intraprendenza.</p>
+
           <Image
             src="/assets/homepage/happiness.png"
             alt="Success"
             width={80}
             height={80}
-            className="mt-4"
+            className="mt-5 mb-6"
           />
+          <p className="description">
+            Ti risponderò entro
+            <br /> 24h
+          </p>
         </div>
       ) : (
         <form className="w-full flex flex-col" onSubmit={handleSubmit}>
