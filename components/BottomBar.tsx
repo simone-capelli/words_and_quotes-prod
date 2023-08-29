@@ -19,6 +19,7 @@ const BottomBar = () => {
                 alt="Telegram_fill"
                 width={28}
                 height={28}
+                className="cursor-pointer"
               />
             </a>
             <Image
@@ -34,6 +35,7 @@ const BottomBar = () => {
               alt="Add_fill"
               width={28}
               height={28}
+              className="cursor-pointer"
             />
           </>
         )}
@@ -46,6 +48,7 @@ const BottomBar = () => {
               alt="Home_fill"
               width={28}
               height={28}
+              className="cursor-pointer"
             />
             {pathname === '/words' && (
               <>
@@ -61,6 +64,7 @@ const BottomBar = () => {
                   alt="Folder_fill"
                   width={28}
                   height={28}
+                  className="cursor-pointer"
                 />
               </>
             )}
@@ -79,6 +83,7 @@ const BottomBar = () => {
                   alt="Add_fill"
                   width={28}
                   height={28}
+                  className="cursor-pointer"
                 />
               </>
             )}

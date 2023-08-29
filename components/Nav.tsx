@@ -16,7 +16,10 @@ const Nav = () => {
     <nav className="navbar">
       <div className="navbar_container">
         <div className="header_title outfit flex_row gap-2">
-          <p onClick={() => router.push('/')} className="text-[#268C41] mr-1">
+          <p
+            onClick={() => router.push('/')}
+            className="text-[#268C41] mr-1 cursor-pointer"
+          >
             Words
           </p>
           <p>&</p>
@@ -32,6 +35,7 @@ const Nav = () => {
             width={20}
             height={20}
             onClick={() => setToggleMenu((prev: boolean) => !prev)}
+            className="cursor-pointer"
           />
         ) : (
           <UserButton afterSignOutUrl="/" />

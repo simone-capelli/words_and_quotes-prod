@@ -141,7 +141,7 @@ const InputWordSection = () => {
           alt={isLearned ? 'Word Learned' : 'Word To Learn'}
           width={isLearned ? 28 : 36}
           height={isLearned ? 28 : 36}
-          className={isLearned ? ' ml-2' : ''}
+          className={isLearned ? 'ml-2 cursor-pointer' : 'cursor-pointer'}
         />
 
         <input
@@ -168,7 +168,7 @@ const InputWordSection = () => {
           ) : (
             <Image
               onClick={suggestMeaning}
-              className="mx-1"
+              className="mx-1 cursor-pointer"
               src="/assets/icons/meaningInput.png"
               alt="Light Bulb"
               width={28}
@@ -196,6 +196,7 @@ const InputWordSection = () => {
             alt="Tag blue"
             width={36}
             height={36}
+            className="cursor-pointer"
           />
           <input
             className="p-2 rounded-lg border-2 border-solid border-[#D9D9D9]"
