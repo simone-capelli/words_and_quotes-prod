@@ -14,6 +14,8 @@ const InputWordSection = () => {
   let { user } = useUser();
   const userId = String(user?.id);
 
+  const [limitation, setLimitation] = useState(false);
+
   const tagColorArray = [
     'blue',
     'green',
@@ -46,7 +48,10 @@ const InputWordSection = () => {
     });
     const count = await res.json();
 
-    if (count > wordsLimit) return;
+    if (count > wordsLimit) {
+      setLimitation(true);
+      return;
+    }
 
     if (!wordInput || !tagInput || meaningSubmitting) {
       return;
@@ -255,11 +260,34 @@ const InputWordSection = () => {
               width={16}
               height={16}
             />
-          ) : (
+          ) : !limitation ? (
             'Save'
+          ) : (
+            'x'
           )}
         </button>
       </div>
+
+      {limitation ? (
+        <div className="mt-4 flex flex-col flex-center text-center">
+          <p className=" flex flex-center title text-[26px]">
+            Limite parole raggiunto!
+          </p>
+          <div className="description">
+            Hai raggiunto un massimo di 10 parole, che è il limite impostato per
+            questa versione di testing. Puoi andare nella &lt;
+            <a
+              className="underline"
+              onClick={() => router.push('/words/storage')}
+            >
+              sezione parole salvate
+            </a>
+            &gt; e cancellarne alcune per fare spazio!
+          </div>
+        </div>
+      ) : (
+        <span></span>
+      )}
     </div>
   );
 };

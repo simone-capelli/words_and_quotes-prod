@@ -5,9 +5,25 @@ import InputWordSection from '@/components/words/InputWordSection';
 
 const Home = () => {
   return (
-    <section className="w-full flex-center flex-col pt-12">
+    <section className="w-full flex-center flex-col mt-16">
+      <a
+        href="https://t.me/Words_and_Quotes"
+        className="cta-btn bg-[#268C41]  text-center"
+      >
+        <button className="flex flex-row cta-title gap-3 items-center mx-4">
+          <Image
+            src="/assets/homepage/telegram.png"
+            alt="Community"
+            width={20}
+            height={20}
+          />{' '}
+          <p className="text-[14px] text-[#fffffff2]">
+            Unisciti e scopri la parola del giorno!
+          </p>
+        </button>
+      </a>
       <Image
-        className="pt-16"
+        className="mt-12"
         src="/assets/images/word_big-letter_colored.png"
         alt="Word Letter"
         width={117}

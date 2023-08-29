@@ -93,7 +93,7 @@ const Home = () => {
 
         <p className="mt-3 title text-[18px]">Capienza e salvataggio</p>
         <p className="mt-1 description mx-2">
-          Salva fino a un massimo di 50 parole. Puoi contrassegnare le parole
+          Salva fino a un massimo di 10 parole. Puoi contrassegnare le parole
           come &quot;imparate&quot; o &quot;non apprese&quot; per tenere traccia
           dei tuoi progressi di apprendimento.
         </p>
@@ -139,13 +139,15 @@ const Home = () => {
         {/* Beta Testing */}
         <p className="mt-12 green-section">Version</p>
         <p className="mt-4 title text-[22px]">Beta-Testing</p>
-        <p className="mt-2 title text-[22px]">
-          Il tuo contributo è importante!
-        </p>
-
+        <div className="mt-1 description mx-2">
+          La versione Beta offre un&apos;interfaccia semplice e diverse
+          funzionalità, immergiti totalmente partecipando al nostro gruppo
+          telegram per ottenere una <b>nuova parola ogni giorno</b> e rimanere
+          aggiornato sulle prossime versioni!
+        </div>
         <a
           href="https://t.me/Words_and_Quotes"
-          className="mt-4 cta-btn bg-[#272727]"
+          className="mt-5 cta-btn bg-[#1f2329]"
         >
           <button className="flex flex-row cta-title text-[30px] gap-3 items-center">
             <Image
@@ -154,16 +156,19 @@ const Home = () => {
               width={20}
               height={20}
             />{' '}
-            Lascia il tuo feedback
+            Unisciti a noi
           </button>
         </a>
 
-        <p id="quotes" className="mt-6 description">
-          Lascia un feedback sul canale telegram e unisciti per rimanere sempre
-          aggiornato sulle prossime versioni.
+        {/* <p className="mt-6 title text-[22px]">
+          Il tuo contributo è importante!
         </p>
 
-        <p className="mt-12 title text-[22px]">E le Quotes?</p>
+        <p id="quotes" className="mt-1 description">
+          Lascia un feedback per aiutarci a migliorare questa applicazion web.
+        </p> */}
+
+        <p className="mt-10 title text-[22px]">E le Quotes?</p>
         <p className="bg-gray-100 border-l-4 border-gray-500 italic my-4 pl-4 py-2">
           &quot;La qualità è come la luce del sole: non è la quantità che conta,
           ma la sua intensità.&quot;
@@ -184,8 +189,8 @@ const Home = () => {
         </p>
 
         <p className="mt-4 description">
-          Ciao! Sono uno sviluppatore web freelance specializzato in React e
-          Next.js.
+          Ciao! Sono uno sviluppatore web <b>freelance</b> specializzato in
+          React e Next.js.
         </p>
 
         <div className="flex_row mt-6 gap-10">
