@@ -134,20 +134,14 @@ const Home = () => {
           <button className="cta-title text-[30px]">Inizia ora</button>
         </div>
 
-        <a
-          href="https://t.me/Words_and_Quotes"
+        <div
+          onClick={() => router.push('/words')}
           className="mt-3 cta-btn bg-[#000]"
         >
           <button className="flex flex-row cta-title text-[30px] gap-3 items-center">
-            <Image
-              src="/assets/homepage/telegram.png"
-              alt="Telegram"
-              width={20}
-              height={20}
-            />{' '}
-            Entra su Telegram
+            Accedi
           </button>
-        </a>
+        </div>
 
         <Image
           id="vision"

@@ -16,7 +16,9 @@ const Nav = () => {
     <nav className="navbar">
       <div className="navbar_container">
         <div className="header_title outfit flex_row gap-2">
-          <p className="text-[#268C41] mr-1">Words</p>
+          <p onClick={() => router.push('/')} className="text-[#268C41] mr-1">
+            Words
+          </p>
           <p>&</p>
           <a className="opacity-20" href="#quotes">
             Quotes
