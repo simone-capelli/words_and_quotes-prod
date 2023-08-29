@@ -1,7 +1,9 @@
 'use client';
 
+import ContactForm from '@components/homepage/Contact';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 const Home = () => {
   const router = useRouter();
@@ -18,96 +20,6 @@ const Home = () => {
     };
     fetchTotalUsers();
   }); */
-
-  /* const ContactForm = () => {
-    const [name, setName] = useState('');
-    const [surname, setSurname] = useState('');
-    const [email, setEmail] = useState('');
-    const [message, setMessage] = useState('');
-
-    const sendMail = async (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
-
-      const response = await fetch('/api/sendEmail', {
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json',
-        },
-        body: JSON.stringify({
-          name,
-          surname,
-          email,
-          message,
-        }),
-      });
-      console.log(await response.json());
-    };
-
-    return (
-      <form className="w-full flex flex-col" onSubmit={sendMail}>
-        <div className="w-full flex flex-row gap-4 flex-center">
-          <div className="w-1/2 flex flex-col">
-            <p className="mb-2 w-full mt-4 title text-[18px]">Nome</p>
-            <input
-              placeholder="Il tuo nome"
-              className="p-2 w-full rounded-lg border-2 border-solid border-[#D9D9D9]"
-              type="text"
-              id="name"
-              value={name}
-              maxLength={25}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </div>
-          <div className="w-1/2 flex flex-col">
-            <p className="mb-2 w-full mt-4 title text-[18px]">Cognome</p>
-            <input
-              placeholder="Il tuo cognome"
-              className="p-2 w-full rounded-lg border-2 border-solid border-[#D9D9D9]"
-              type="email"
-              id="email"
-              value={surname}
-              maxLength={50}
-              onChange={(e) => setSurname(e.target.value)}
-            />
-          </div>
-        </div>
-
-        <div className="w-full flex flex-col">
-          <p className="mb-2 w-full mt-4 title text-[18px]">Email</p>
-          <input
-            placeholder="nome.cognome@gmail.com"
-            className="p-2 w-full rounded-lg border-2 border-solid border-[#D9D9D9]"
-            type="email"
-            id="email"
-            value={email}
-            maxLength={50}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-
-        <div>
-          <p className="mb-2 w-full mt-4 title text-[18px]">Messaggio</p>
-          <textarea
-            placeholder="Scrivi qui il tuo messaggio..."
-            className="w-full h-[120px] p-2 rounded-lg border-2 border-solid border-[#D9D9D9]"
-            id="message"
-            value={message}
-            maxLength={500}
-            onChange={(e) => setMessage(e.target.value)}
-          ></textarea>
-        </div>
-
-        <div
-          onClick={() => router.push('/words')}
-          className="mt-4 cta-btn bg-[#268C41]"
-        >
-          <button className="cta-title text-[30px]" type="submit">
-            Invia
-          </button>
-        </div>
-      </form>
-    );
-  }; */
 
   return (
     <section id="home" className="w-full flex-col mt-12">
@@ -299,13 +211,13 @@ const Home = () => {
           combinare queste due passioni con la mia esperienza nello sviluppo di
           app.
         </p>
-        <p className="mt-3 description">
+        <p className="my-3 description">
           Sarebbe un piacere conoscere la tua storia e esplorare nuove
           possibilità insieme. Non esitare a contattarmi, una conversazione può
           aprire porte inaspettate!
         </p>
 
-        {/* <ContactForm /> */}
+        <ContactForm />
       </div>
 
       <br />

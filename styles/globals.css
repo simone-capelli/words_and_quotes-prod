@@ -32,6 +32,10 @@
   @apply text-[16px] text-gray-500 font-normal;
 }
 
+.error_msg {
+  @apply text-[12px] text-red-500 mt-1;
+}
+
 .cta-btn {
   @apply w-full py-3 flex justify-center items-center rounded-lg;
 }

@@ -8,3 +8,22 @@ export interface Word {
   tag: string;
   color: string;
 }
+
+export const initialFormData = {
+  name: '',
+  surname: '',
+  email: '',
+  msg: '',
+};
+export interface ErrorMessage {
+  name: string;
+  surname: string;
+  email: string;
+  msg: string;
+}
+export const errorMessage: ErrorMessage = {
+  name: '',
+  surname: '',
+  email: '',
+  msg: '',
+};
