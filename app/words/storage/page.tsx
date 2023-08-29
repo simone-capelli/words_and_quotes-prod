@@ -5,12 +5,13 @@ import Image from 'next/image';
 import WordCard from '@components/words/WordCard';
 import { Word } from '@customTypes/interfaces';
 import { useUser } from '@clerk/nextjs';
+import { findMostMatchedString } from '@utils/functions';
 
 const WordsList = ({ words }: { words: Word[] }) => {
   if (!useUser().user) return (window.location.href = '/');
 
   return (
-    <div className="pt-16 w-full flex flex-col gap-2">
+    <div className="pt-4 w-full flex flex-col gap-2">
       {words.map((word: Word) => (
         <WordCard word={word} key={word._id} />
       ))}
@@ -46,10 +47,17 @@ const Page = () => {
   }, [userId]);
 
   const [filterByLearned, setFilterByLearned] = useState(0);
+
+  const [tagInput, setTagInput] = useState('');
+  const [matchedTag, setMatchedTag] = useState('');
+
   const [tagColor, setTagColor] = useState('unselect');
-  const [alphabetFilter, setAlphabetFilter] = useState(0);
 
   const handleFilterByLearned = () => {
+    setTagColor('unselect');
+    setMatchedTag('');
+    setTagInput('');
+
     if (filterByLearned === 0) {
       setFilteredWords(words.filter((word) => word.isLearned === false));
       setFilterByLearned(1);
@@ -60,10 +68,32 @@ const Page = () => {
       setFilteredWords(words);
       setFilterByLearned(0);
     }
+  };
+
+  const handleFilterByTagName = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setTagColor('unselect');
+    setFilterByLearned(0);
+    setTagInput(e.target.value);
+
+    const tag = await findMostMatchedString(e.target.value, userId);
+    console.log(tag);
+    setMatchedTag(tag);
+
+    if (tag) {
+      setFilteredWords(words.filter((word) => word.tag === tag));
+    } else {
+      setFilteredWords(words);
+      setMatchedTag('');
+    }
   };
 
   const handleSelectedTag = (e: React.MouseEvent<HTMLImageElement>) => {
+    setFilterByLearned(0);
+    setMatchedTag('');
+    setTagInput('');
+
     const color = e.currentTarget.id;
     console.log(color);
     setTagColor(color);
@@ -72,22 +102,6 @@ const Page = () => {
 
     const element = document.getElementById('tagSection');
     if (element) element.style.visibility = 'hidden';
-
-    setFilterByLearned(0);
-  };
-
-  const handleAlphabeticOrder = () => {
-    if (alphabetFilter === 0 || alphabetFilter === 2) {
-      setFilteredWords(
-        filteredWords.sort((a, b) => a.word.localeCompare(b.word))
-      );
-      setAlphabetFilter(1);
-    } else if (alphabetFilter === 1) {
-      setFilteredWords(
-        filteredWords.sort((a, b) => b.word.localeCompare(a.word))
-      );
-      setAlphabetFilter(2);
-    }
   };
 
   return (
@@ -130,6 +144,18 @@ const Page = () => {
                 />
               )}
 
+              {/* tag search */}
+              <div className="w-full flex flex-col justify-center items-center">
+                <input
+                  onChange={handleFilterByTagName}
+                  value={tagInput}
+                  placeholder="Filtra per tag"
+                  type="text"
+                  maxLength={33}
+                  className="p-2 text-center w-[150px] rounded-[15px] border-2 border-solid border-[#D9D9D9]"
+                />
+              </div>
+
               <Image
                 onClick={() => {
                   if (tagColor !== 'unselect') {
@@ -152,40 +178,13 @@ const Page = () => {
                 width={32}
                 height={32}
               />
-
-              {alphabetFilter === 0 ? (
-                <Image
-                  onClick={handleAlphabeticOrder}
-                  src={'/assets/icons/line.png'}
-                  alt="Down Arrow"
-                  width={32}
-                  height={32}
-                />
-              ) : alphabetFilter === 1 ? (
-                <Image
-                  onClick={handleAlphabeticOrder}
-                  src={'/assets/icons/down-arrow.png'}
-                  alt="Down Arrow"
-                  width={32}
-                  height={32}
-                />
-              ) : (
-                <Image
-                  onClick={handleAlphabeticOrder}
-                  src={'/assets/icons/down-arrow.png'}
-                  alt="Down Arrow"
-                  width={32}
-                  height={32}
-                  className="rotate-180"
-                />
-              )}
             </div>
           </div>
 
           <div
             style={{ visibility: 'hidden' }}
             id="tagSection"
-            className="fixed w-full flex justify-center items-center z-10 mt-20 right-1"
+            className="fixed w-full flex justify-end items-center z-10 mt-20 right-1"
           >
             <div className="p-2 gap-4 w-[150px] flex flex-col border rounded-[5px] border-solid border-black bg-white">
               <div className="flex flex-row justify-between">
@@ -261,6 +260,26 @@ const Page = () => {
           </div>
 
           <br />
+          {matchedTag && tagInput ? (
+            <div className="pt-20 text-[#000] flex flex-center">
+              <br />
+              <p>#{matchedTag}</p>
+              <Image
+                onClick={() => {
+                  setMatchedTag('');
+                  setTagInput('');
+                  setFilteredWords(words);
+                }}
+                src="/assets/icons/remove.png"
+                alt="remove_tag"
+                width={15}
+                height={15}
+                className="ml-2"
+              />
+            </div>
+          ) : (
+            <div className="pt-16" />
+          )}
           <WordsList words={filteredWords} />
         </>
       )}
@@ -272,3 +291,46 @@ const Page = () => {
 };
 
 export default Page;
+
+// const [alphabetFilter, setAlphabetFilter] = useState(0);
+
+/* const handleAlphabeticOrder = () => {
+    if (alphabetFilter === 0 || alphabetFilter === 2) {
+      setFilteredWords(
+        filteredWords.sort((a, b) => a.word.localeCompare(b.word))
+      );
+      setAlphabetFilter(1);
+    } else if (alphabetFilter === 1) {
+      setFilteredWords(
+        filteredWords.sort((a, b) => b.word.localeCompare(a.word))
+      );
+      setAlphabetFilter(2);
+    }
+  }; */
+
+/* {alphabetFilter === 0 ? (
+  <Image
+    onClick={handleAlphabeticOrder}
+    src={'/assets/icons/line.png'}
+    alt="Down Arrow"
+    width={32}
+    height={32}
+  />
+) : alphabetFilter === 1 ? (
+  <Image
+    onClick={handleAlphabeticOrder}
+    src={'/assets/icons/down-arrow.png'}
+    alt="Down Arrow"
+    width={32}
+    height={32}
+  />
+) : (
+  <Image
+    onClick={handleAlphabeticOrder}
+    src={'/assets/icons/down-arrow.png'}
+    alt="Down Arrow"
+    width={32}
+    height={32}
+    className="rotate-180"
+  />
+)} */
