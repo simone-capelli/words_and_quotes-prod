@@ -8,7 +8,7 @@ import { useUser } from '@clerk/nextjs';
 import { findMostMatchedString } from '@utils/functions';
 
 const WordsList = ({ words }: { words: Word[] }) => {
-  if (!useUser().user) return (window.location.href = '/');
+  //if (!useUser().user) return (window.location.href = '/');
 
   return (
     <div className="pt-4 w-full flex flex-col gap-2">
